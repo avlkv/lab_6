@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block title %}Соревнования{% endblock %}
+{% block body %}
+    <ul>
+        {% for event in events %}
+            <li>
+                Соревнование - {{ event.name_event }}<br>
+                Дата проведения - {{ event.date_event }}<br>
+                Участники: <br>
+                {% for user in users %}
+                    {% if event.id == user.event_id %}
+                        {{ user.name_user }}<br>
+                    {% endif %}
+                {% endfor %}
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
